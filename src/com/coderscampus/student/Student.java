@@ -62,7 +62,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return studentID  + ", " + studentName + ", " + 
-				course +  ", " + grade + "\n";
+				course +  ", " + grade;
 	}
 	
 	

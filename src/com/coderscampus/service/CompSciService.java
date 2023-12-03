@@ -6,9 +6,8 @@ public class CompSciService extends FileService{
 	
 	String data;
 		
-	while ((data = fileReader.readLine()) != null) {
-		
-	}
+	
+
 	}
 
 	

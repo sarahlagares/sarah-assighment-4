@@ -4,7 +4,7 @@ public class Student {
 	
 	private String studentID;
 	private String studentName;
-	private String course;
+	private static String course;
 	private String grade;
     
 
@@ -28,7 +28,7 @@ public class Student {
 	}
 
 
-	public String getCourse() {
+	public static String getCourse() {
 		return course;
 	}
 

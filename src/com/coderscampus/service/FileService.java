@@ -10,37 +10,30 @@ import com.coderscampus.student.Student;
 
 public class FileService {
 
-	public List<Student> loadStudentsFromFile(String fileName) throws IOException {
+	public Student []loadStudentsFromFile(String fileName) throws IOException {
 
-		List<Student> students = new ArrayList<>();
 
+	//	List<Student> students = new ArrayList<>();
+		Student[] students = new Student[100];
 		try (BufferedReader fileReader = new BufferedReader(new FileReader("master-list-file.txt"))) {
 			String data;
-			
 
+			fileReader.readLine();
 			// Read and parse the master file
+			int i = 0;
 			while ((data = fileReader.readLine()) != null) {
 				String[] parts = data.split(",");
-				String studentID = parts[0].trim();
-				String studentName = parts[1].trim();
-				String course = parts[2].trim();
-				String grade = parts[3].trim();
-				students.add(new Student(studentID, studentName, course, grade));
+				String studentID = parts[0];
+				String studentName = parts[1];
+				String course = parts[2];
+				String grade = parts[3];
+				students[i] = (new Student(studentID, studentName, course, grade));
+				i++;
 			}
+		
 		}
 		return students;
 
-	}
-
-	public static void main(String[] args) {
-		FileService printStudents = new FileService();
-	    try {
-	        List<Student> students = printStudents.loadStudentsFromFile("fileName");
-	        for (Student student : students) {
-	            System.out.println(student);
-	        }
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
-	}
+	}		
+	
 }

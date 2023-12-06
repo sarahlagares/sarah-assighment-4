@@ -1,44 +1,35 @@
 package com.coderscampus.service;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.coderscampus.student.Student;
-import com.coderscampus.service.FileService;
 
 public class CompSciService {
 
-	public void compSciStudents() throws IOException {
-		FileService printStudents = new FileService();
+	 public void compSciStudents() throws IOException {
+	        FileService fileService = new FileService(); // Use the FileService instance to load students
 
-		//create a csv file
-		BufferedWriter writer = null;
-		// Specify the file name
-		try {
-			writer = new BufferedWriter(new FileWriter("course1.cvs"));
-			// Write the header to the file
-			writer.write("Student ID, Student Name, Course, Grade\n");
-		} finally {
-			if (writer != null)
-				writer.close();
-		}
-		
-		//would I need a buffered reader?
-		//Need to utilize method from File Service and filter the course part to print only compsci students
-		if (printStudents.loadStudentsFromFile("master-list-file.txt").equals("COMPSCI")){
-		      System.out.println();
-			
-			
+	        // Create a CSV file
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter("course1.csv"))) {
+	            // Write the header to the file
+	            writer.write("Student ID, Student Name, Course, Grade\n");
 
-			
-				}
-			
-	
-		}
+	            // Load students from the file using the FileService instance
+	            Student[] allStudents = fileService.loadStudentsFromFile("master-list-file.txt");
+
+	            // Iterate through the students and print only COMPSCI students
+	            for (Student student : allStudents) {
+	            	// Print a message before the loop
+	            	System.out.println("Processing students...");
+	                if (student.getCourse().contains("COMPSCI")) {
+	                    // Write the COMPSCI student details to the CSV file
+	                	writer.write(student + "\n");
+	                	// Print a message after processing a COMPSCI student
+	                    System.out.println("COMPSCI student found: " + student);
+	                }
+	            }
+	        } // Print a message after the loop
+	        System.out.println("Finished processing students.");
+	    }
 	}
-

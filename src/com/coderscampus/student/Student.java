@@ -28,13 +28,13 @@ public class Student {
 	}
 
 
-	public static String getCourse() {
+	public String getCourse() {
 		return course;
 	}
 
 
 	public void setCourse(String course) {
-		this.course = course;
+		Student.course = course;
 	}
 
 

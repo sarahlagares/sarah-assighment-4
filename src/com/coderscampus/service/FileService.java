@@ -13,8 +13,7 @@ public class FileService {
 	public Student []loadStudentsFromFile(String fileName) throws IOException {
 
 
-	//	List<Student> students = new ArrayList<>();
-		Student[] students = new Student[100];
+			Student[] students = new Student[100];
 		try (BufferedReader fileReader = new BufferedReader(new FileReader("master-list-file.txt"))) {
 			String data;
 

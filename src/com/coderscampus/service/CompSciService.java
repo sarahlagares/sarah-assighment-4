@@ -13,9 +13,10 @@ import com.coderscampus.service.FileService;
 
 public class CompSciService {
 
-	public void printCompSciStudents() throws IOException {
+	public void compSciStudents() throws IOException {
 		FileService printStudents = new FileService();
 
+		//create a csv file
 		BufferedWriter writer = null;
 		// Specify the file name
 		try {
@@ -26,17 +27,18 @@ public class CompSciService {
 			if (writer != null)
 				writer.close();
 		}
+		
+		//would I need a buffered reader?
+		//Need to utilize method from File Service and filter the course part to print only compsci students
+		if (printStudents.loadStudentsFromFile("master-list-file.txt").equals("COMPSCI")){
+		      System.out.println();
+			
+			
 
-		try (BufferedReader fileReader = new BufferedReader(new FileReader("master-list-file.txt"))) {
-			// Iterate over the students and write COMPSCI students to the file
-			Student[] students = printStudents.loadStudentsFromFile("fileName");
-
-			for (Student student : students) {
-				if (Student.getCourse().equals("COMPSCI")) {
-					// Write the student information to the file
-					System.out.println(student);
+			
 				}
-			}
+			
+	
 		}
 	}
-}
+

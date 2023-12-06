@@ -11,7 +11,9 @@ public class Assighnment4Application {
 	public static void main(String[] args) throws IOException{
 		
 		CompSciService printCompSciStudents = new CompSciService();
-		printCompSciStudents.printCompSciStudents();
+		printCompSciStudents.compSciStudents();
+		
+		
 		
 //			 Student[] students = printStudents.loadStudentsFromFile("fileName");
 //			for (Student student : students) {

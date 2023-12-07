@@ -24,7 +24,8 @@ public class CompSciService {
 	            	System.out.println("Processing students...");
 	                if (student.getCourse().contains("COMPSCI")) {
 	                    // Write the COMPSCI student details to the CSV file
-	                	writer.write(student + "\n");
+	                	writer.write(student.getStudentID() + "," + student.getStudentName() + "," +
+	                            student.getCourse() + "," + student.getGrade() + "\n");
 	                	// Print a message after processing a COMPSCI student
 	                    System.out.println("COMPSCI student found: " + student);
 	                }

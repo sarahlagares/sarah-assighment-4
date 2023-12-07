@@ -4,7 +4,7 @@ public class Student {
 	
 	private String studentID;
 	private String studentName;
-	private static String course;
+	private  String course;
 	private String grade;
     
 

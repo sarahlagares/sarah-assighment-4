@@ -23,9 +23,10 @@ public class ApmthService {
             for (Student student : allStudents) {
             	// Print a message before the loop
             	System.out.println("Processing students...");
-                if (student.getCourse().contains("APMTH ")) {
+                if (student.getCourse().contains("APMTH")) {
                     // Write the APMTH student details to the CSV file
-                	writer.write(student + "\n");
+                	writer.write(student.getStudentID() + "," + student.getStudentName() + "," +
+                            student.getCourse() + "," + student.getGrade() + "\n");
                 	// Print a message after processing a APMTH student
                     System.out.println("APMTH student found: " + student);
                 }

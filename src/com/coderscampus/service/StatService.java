@@ -25,7 +25,8 @@ public class StatService {
             	System.out.println("Processing students...");
                 if (student.getCourse().contains("STAT")) {
                     // Write the STAT student details to the CSV file
-                	writer.write(student + "\n");
+                	writer.write(student.getStudentID() + "," + student.getStudentName() + "," +
+                            student.getCourse() + "," + student.getGrade()+ "\n");
                 	// Print a message after processing a STAT student
                     System.out.println("STAT student found: " + student);
                 }

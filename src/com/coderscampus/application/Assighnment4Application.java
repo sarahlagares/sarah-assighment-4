@@ -1,8 +1,6 @@
 package com.coderscampus.application;
 
 import java.io.IOException;
-import java.util.List;
-
 import com.coderscampus.service.ApmthService;
 import com.coderscampus.service.CompSciService;
 import com.coderscampus.service.StatService;

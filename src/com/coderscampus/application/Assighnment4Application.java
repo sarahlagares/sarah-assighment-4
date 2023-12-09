@@ -7,26 +7,15 @@ import com.coderscampus.service.StatService;
 
 public class Assighnment4Application {
 
-	public static void main(String[] args) throws IOException{
-		
+	public static void main(String[] args) throws IOException {
+
 		CompSciService printCompSciStudents = new CompSciService();
 		ApmthService printApmthStudents = new ApmthService();
 		StatService printStatStudents = new StatService();
-		
+
 		printCompSciStudents.compSciStudents();
 		printApmthStudents.apmthStudents();
 		printStatStudents.statStudents();
-		
-		
-//			 Student[] students = printStudents.loadStudentsFromFile("fileName");
-//			for (Student student : students) {
-//				System.out.println(student);
-//			}
-		
-		}
+
 	}
-
-		
-	
-	
-
+}

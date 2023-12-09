@@ -4,7 +4,7 @@ public class Student {
 	
 	private String studentID;
 	private String studentName;
-	private  String course;
+	private String course;
 	private String grade;
     
 
@@ -34,7 +34,7 @@ public class Student {
 
 
 	public void setCourse(String course) {
-		Student.course = course;
+		this.course = course;
 	}
 
 

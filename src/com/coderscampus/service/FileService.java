@@ -1,8 +1,10 @@
 package com.coderscampus.service;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -30,31 +32,29 @@ public class FileService {
 				String grade = parts[3];
 				students[i] = (new Student(studentID, studentName, course, grade));
 				i++;
-
-				// Sort the array in descending order based on Grade
-				Arrays.sort(students, new Comparator<Student>() {
-
-					@Override
-					public int compare(Student student1, Student student2) {
-						// Handle null cases
-						String grade1 = student1 != null ? student1.getGrade() : null;
-						String grade2 = student2 != null ? student2.getGrade() : null;
-
-						// Compare grades, handling nulls
-						if (grade1 == null && grade2 == null) {
-							return 0; 
-						} else if (grade1 == null) {
-							return 1; 
-						} else if (grade2 == null) {
-							return -1;
-						} else {
-							// Compare non-null grades
-							return grade2.compareTo(grade1); // Reverse order for descending
-						}
-					}
-				});
 			}
 		}
 		return students;
+	}
+
+	public void writeStudentsToFile(Student[] students, String targetFileName, String fileName) {
+		FileService fileService = new FileService(); // Use the FileService instance to load students
+		//Create a CSV file
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(targetFileName))) {
+			// Write the header to the file
+			writer.write("Student ID, Student Name, Course, Grade\n");
+
+			// Load students from the file using the FileService instance
+			Student[] allStudents = fileService.loadStudentsFromFile(fileName);
+
+			// Write the  student details to the CSV file
+			for (Student student : allStudents) {
+				if (student != null) {
+					writer.write(student + "\n");
+				}
+			}	
+		}	catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
